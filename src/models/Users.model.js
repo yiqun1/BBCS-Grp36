@@ -1,3 +1,4 @@
+
 const prisma = require('./prismaClient');
 const bcrypt = require('bcrypt');
 
@@ -36,4 +37,19 @@ module.exports.login = async function login(username, password) {
         console.error("Login Error:", error.message);
         throw new Error("Invalid username or password"); // Return a unified error message
     }
-};
+
+
+// Create a new user
+module.exports.createUser = async function createUser(data) {
+    return prisma.person.create({
+      data,
+    });
+  };
+  
+  // Find a user by email
+  module.exports.findUserByEmail = async function findUserByEmail(email) {
+    return prisma.person.findUnique({
+      where: { email },
+    });
+  };
+

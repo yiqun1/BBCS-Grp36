@@ -2,7 +2,7 @@ const express = require('express');
 const createError = require('http-errors');
 const path = require('path');
 
-
+const path = require('path');
 
 const userRouter = require('./routers/User.router.js');
 
@@ -12,7 +12,9 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route Registrations
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/users', userRouter);
 
