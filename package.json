@@ -7,8 +7,10 @@
     "postinstall": "npx prisma generate",
     "migration:dev": "npx dotenv-cli -e .env -- npx prisma migrate dev",
     "migration:reset": "npx dotenv-cli -e .env -- npx prisma migrate reset",
+
     "start": "npx dotenv-cli -e .env -- node ./src/server.js",
     "dev": "nodemon src/server.js"
+
   },
   "author": "",
   "license": "ISC",
