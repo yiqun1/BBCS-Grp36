@@ -29,16 +29,14 @@ router.post("/login", async (req, res) => {
 // POST /register
 router.post("/register", async (req, res) => {
   try {
-    console.log("Request Body:", req.body); // Debug request body
+    console.log("Request Body:", req.body);
 
     const { name, email, password } = req.body;
 
-    // Validate required fields
     if (!name || !email || !password) {
       return res.status(400).json({ error: "All fields are required." });
     }
 
-    // Check if the user already exists using Prisma directly
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
@@ -47,10 +45,9 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ error: "Email is already registered." });
     }
 
-    // Hash the password before saving
+    // Hash the password 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create the new user in the database
     const newUser = await prisma.user.create({
       data: {
         username: name,
@@ -59,7 +56,7 @@ router.post("/register", async (req, res) => {
       },
     });
 
-    console.log("User Registered:", newUser); // Debug success
+    console.log("User Registered:", newUser);
 
     res.status(201).json({ message: "User registered successfully!", user: newUser });
   } catch (error) {

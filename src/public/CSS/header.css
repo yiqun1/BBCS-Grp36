@@ -1,0 +1,52 @@
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #01616e; 
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-links li a:hover {
+    color: #c8e6c9; /* Lighter green on hover */
+  }
+  
+  .nav-links .btn {
+    padding: 8px 15px;
+    background-color: #1a7259; /* Darker green for button */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .nav-links .btn:hover {
+    background-color: #016406; /* Medium green on hover */
+  }
+  

@@ -5,21 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = document.getElementById("password");
   
     form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Prevent form submission
+      event.preventDefault(); 
   
-      // Gather form data
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
       const password = passwordInput.value;
   
-      // Simple validation
       if (!name || !email || !password) {
         alert("All fields are required.");
         return;
       }
   
       try {
-        // Send the data to the backend
         const response = await fetch("/users/register", {
           method: "POST",
           headers: {
@@ -31,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = await response.json();
   
         if (response.ok) {
-          alert(result.message); // Success message
-          form.reset(); // Clear the form
+          alert(result.message); 
+          form.reset(); 
+          window.location.href = "/login.html"; 
         } else {
           alert(result.error || "Registration failed.");
         }
