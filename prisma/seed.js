@@ -7,19 +7,17 @@ async function main() {
   // Users to seed
   const users = [
     {
-      username: "JohnDoe",
-      email: "john@example.com",
-      password: "password123", // Plain text password, will be hashed
+      
     },
     {
       username: "JaneDoe",
       email: "jane@example.com",
-      password: "mypassword", // Plain text password, will be hashed
+      password: "mypassword", 
     },
     {
       username: "AliceSmith",
       email: "alice@example.com",
-      password: "securepass", // Plain text password, will be hashed
+      password: "securepass", 
     },
   ];
 
@@ -27,7 +25,6 @@ async function main() {
     // Hash the password
     const hashedPassword = await bcrypt.hash(user.password, 10);
 
-    // Create user in the database
     await prisma.user.create({
       data: {
         username: user.username,
