@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   width: 100%; /* Full width */
-  background-color: #01616e; /* Teal background color */
+  background-color: #1e7b73; /* Teal background color */
   padding: 10px 20px; /* Spacing inside the header */
   display: flex;
   justify-content: space-between;
@@ -50,7 +50,7 @@
 /* Login Button */
 .nav-links .btn {
   padding: 8px 15px;
-  background-color: #1a7259; /* Darker green button */
+  background-color: #52b095; /* Darker green button */
   color: white;
   border: none;
   border-radius: 4px;
@@ -60,5 +60,5 @@
 }
 
 .nav-links .btn:hover {
-  background-color: #016406; /* Darker green on hover */
+  background-color: #4a9c85; /* Darker green on hover */
 }
