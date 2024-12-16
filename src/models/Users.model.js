@@ -39,7 +39,7 @@ module.exports.login = async function login(username, password) {
     }
 
 
-// Create a new user
+}// Create a new user
 module.exports.createUser = async function createUser(data) {
     return prisma.person.create({
       data,

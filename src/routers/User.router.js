@@ -1,4 +1,4 @@
-
+const prisma = require('../models/prismaClient');
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { login } = require('../models/Users.model.js');
