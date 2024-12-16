@@ -1,52 +1,64 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Header Styles */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #01616e; 
-    padding: 10px 20px;
-    color: white;
-  }
-  
-  .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-  }
-  
-  .nav {
-    display: flex;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .nav-links li a:hover {
-    color: #c8e6c9; /* Lighter green on hover */
-  }
-  
-  .nav-links .btn {
-    padding: 8px 15px;
-    background-color: #1a7259; /* Darker green for button */
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .nav-links .btn:hover {
-    background-color: #016406; /* Medium green on hover */
-  }
-  
+  position: fixed; /* Sticks the header to the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  background-color: #01616e; /* Teal background color */
+  padding: 10px 20px; /* Spacing inside the header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white; /* Text color */
+  z-index: 1000; /* Ensures it's above other content */
+}
+
+/* Logo */
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+  color: #c8e6c9; /* Lighter green on hover */
+}
+
+/* Login Button */
+.nav-links .btn {
+  padding: 8px 15px;
+  background-color: #1a7259; /* Darker green button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links .btn:hover {
+  background-color: #016406; /* Darker green on hover */
+}

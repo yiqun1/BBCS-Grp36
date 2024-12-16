@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
+    <div id="header"></div> 
     <div class="login-container">
         <h2>Login</h2>
         <div class="form-group">
@@ -25,7 +26,18 @@
             Don't have an account? <a href="/register.html">Register here</a>
         </p>
     </div>
-    
+    <script>
+        // Dynamically load the header.html
+        document.addEventListener("DOMContentLoaded", () => {
+          fetch("../header.html")
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("header").innerHTML = data;
+            })
+            .catch(error => console.error("Error loading header:", error));
+        });
+      </script>
     <script src="login.js"></script>
+  
 </body>
 </html>
