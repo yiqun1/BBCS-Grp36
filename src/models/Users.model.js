@@ -1,1 +1,1 @@
-const prisma = require('./prismaClient');
+// const prisma = require('./prismaClient');
