@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="titleText">
+            <h1>About</h1>
+            <p>GenerosiTree is a community project that allows anyone to make and fulfill holiday wish requests.</p>
+        </div>
+    </div>
+
+    <script>
+        // Dynamically load the header.html
+        document.addEventListener("DOMContentLoaded", () => {
+          fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("header").innerHTML = data;
+            })
+            .catch(error => console.error("Error loading header:", error));
+        });
+    </script>
+    <script src="snowflake.js"></script>  
+</body>
+</html>

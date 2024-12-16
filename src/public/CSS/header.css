@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   width: 100%; /* Full width */
-  background-color: #1e7b73; /* Teal background color */
+  background-color: #8bb7c5; /* background color */
   padding: 10px 20px; /* Spacing inside the header */
   display: flex;
   justify-content: space-between;
@@ -44,13 +44,13 @@
 }
 
 .nav-links li a:hover {
-  color: #c8e6c9; /* Lighter green on hover */
+  color: #D3EAED;
 }
 
 /* Login Button */
 .nav-links .btn {
   padding: 8px 15px;
-  background-color: #52b095; /* Darker green button */
+  background-color: #4f899b;
   color: white;
   border: none;
   border-radius: 4px;
@@ -60,5 +60,5 @@
 }
 
 .nav-links .btn:hover {
-  background-color: #4a9c85; /* Darker green on hover */
+  background-color: #457381;
 }
