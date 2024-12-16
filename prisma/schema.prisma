@@ -4,14 +4,74 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql" 
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id       Int              @id @default(autoincrement())
-  name     String
-  email    String
-  password String
+  user_id          Int       @id @default(autoincrement())
+  username         String    @unique
+  email            String    @unique
+  passwordHash     String
+  role             Role      @default(both)
+  createdAt        DateTime  @default(now())
+
+  // Relation to leaves the user posted
+  leaves           Leaf[]    @relation("PostedLeaves")
+
+  // Relation to leaves the user fulfilled
+  fulfilledLeaves  Leaf[]    @relation("FulfilledLeaves")
+
+  notifications    Notification[]
 }
 
+enum Role {
+  giver
+  receiver
+  both
+}
+
+model Leaf {
+  leaf_id      Int       @id @default(autoincrement())
+  user_id      Int
+  type         LeafType
+  title        String
+  description  String
+  fulfilled    Boolean   @default(false)
+  fulfilled_by Int?      // Reference to the user who fulfilled the leaf
+  postedAt     DateTime  @default(now())
+  fulfilledAt  DateTime?
+
+  // Relation to the user who posted the leaf
+  user         User      @relation("PostedLeaves", fields: [user_id], references: [user_id])
+
+  // Relation to the user who fulfilled the leaf
+  fulfiller    User?     @relation("FulfilledLeaves", fields: [fulfilled_by], references: [user_id])
+
+  notifications Notification[]
+}
+
+enum LeafType {
+  request
+  offering
+}
+
+model Notification {
+  notification_id Int       @id @default(autoincrement())
+  user_id         Int
+  leaf_id         Int
+  message         String
+  createdAt       DateTime  @default(now())
+  readStatus      Boolean   @default(false)
+
+  user            User      @relation(fields: [user_id], references: [user_id])
+  leaf            Leaf      @relation(fields: [leaf_id], references: [leaf_id])
+}
+
+model Theme {
+  theme_id    Int       @id @default(autoincrement())
+  name        String    @unique
+  startDate   DateTime
+  endDate     DateTime
+  active      Boolean   @default(false)
+}
