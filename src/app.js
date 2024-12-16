@@ -2,7 +2,7 @@ const express = require('express');
 const createError = require('http-errors');
 const path = require('path');
 
-const path = require('path');
+
 
 const userRouter = require('./routers/User.router.js');
 
