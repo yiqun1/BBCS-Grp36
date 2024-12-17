@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+/* General Reset */
+* {
+  font-family: "Fraunces", serif;
+}
+
+/* Body with Snowflakes */
+body {
+  background: linear-gradient(to bottom, #1E3C72, #2A5298); /* Same gradient as login.css */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Snowflake Animation */
+@keyframes snowfall {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: #FFF;
+  opacity: 0.7;
+  font-size: 1.5rem;
+  animation: snowfall linear infinite;
+  user-select: none;
+}
+
+/* Register Container */
+.form-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2.5rem; 
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  width: 420px; 
+  text-align: center;
+  margin: 2rem 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: #1E88E5;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem; 
+  border: 1px solid #BDBDBD;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #42A5F5;
+  box-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
+}
+
+/* Button */
+button {
+  background-color: #1E88E5;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #1565C0;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.5);
+}
+
+/* Register Prompt */
+.register-prompt {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #424242;
+}
+
+.register-prompt a {
+  color: #1E88E5;
+  text-decoration: none;
+}
+
+.register-prompt a:hover {
+  text-decoration: underline;
+}
