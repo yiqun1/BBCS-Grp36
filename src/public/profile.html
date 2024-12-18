@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/CSS/profile.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="header"></div>
+
+  <!-- Profile Container -->
+  <main class="profile-container">
+    <div class="profile-card">
+      <!-- Profile Picture -->
+      <div class="profile-pic">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+      </div>
+
+     <!-- Profile Details -->
+      <h1 class="profile-name" id="profile-name">Loading...</h1>
+      <p class="profile-email" id="profile-email"><strong>Email:</strong> Loading...</p>
+
+      <!-- Buttons -->
+      <div class="profile-buttons">
+        <button class="btn edit-btn">Edit Profile</button>
+      </div>
+    </div>
+
+    <!-- Modal Overlay -->
+<div class="overlay"></div>
+
+<!-- Edit Profile Modal -->
+<div class="modal">
+  <div class="modal-content">
+    <h2>Edit Profile</h2>
+    <div class="form-group">
+      <label for="name-input">Name:</label>
+      <input type="text" id="name-input" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="bio-input">Bio:</label>
+      <textarea id="bio-input" rows="3" placeholder="Enter your bio"></textarea>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn save-btn">Save Changes</button>
+      <button class="btn close-modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  </main>
+  <script src="profile.js"></script>
+  <script src="snowflake.js"></script>
+
+    <script>
+      // Dynamically load the header.html
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("header").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading header:", error));
+      });
+    </script>
+</body>
+</html>
