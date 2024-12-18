@@ -28,7 +28,7 @@ module.exports.getUserProfile = async function getUserProfile(user_id) {
 module.exports.updateUserProfile = async function updateUserProfile(user_id, updateData) {
   try {
     const updatedUser = await prisma.user.update({
-      where: { id: parseInt(user_id, 10) },
+      where: { user_id: parseInt(user_id, 10) },
       data: updateData,
     });
 
