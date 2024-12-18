@@ -47,7 +47,7 @@ router.put('/:userId', validateUserId, async (req, res) => {
 
   try {
     // Ensure only allowed fields are updated
-    const allowedFields = ['name', 'email', 'bio', 'location'];
+    const allowedFields = ['username', 'email', 'password'];
     const filteredUpdateData = {};
 
     Object.keys(updateData).forEach((key) => {
