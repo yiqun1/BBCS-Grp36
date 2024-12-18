@@ -50,3 +50,33 @@ p {
     margin-bottom: 20px;
     text-align: center;
 }
+/* Submit a Request Button - Christmas Red Theme */
+.request-btn {
+    background-color: #C62828; /* Nice Christmas red */
+    color: #FFFFFF; /* White text */
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+/* Hover Effect */
+.request-btn:hover {
+    background-color: #B71C1C; /* Darker red for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px); /* Slight lift */
+}
+
+/* Active (Click) Effect */
+.request-btn:active {
+    background-color: #8E0000; /* Even darker red for click */
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

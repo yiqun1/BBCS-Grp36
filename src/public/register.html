@@ -53,15 +53,31 @@
     <script src="snowflake.js"></script>
 
     <script>
-      // Dynamically load the header.html
-      document.addEventListener("DOMContentLoaded", () => {
-        fetch("header.html")
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById("header").innerHTML = data;
-          })
-          .catch((error) => console.error("Error loading header:", error));
-      });
+     document.addEventListener("DOMContentLoaded", () => {
+    fetch("header.html")
+      .then((response) => response.text())
+      .then((data) => {
+        // Inject header HTML into the page
+        document.getElementById("header").innerHTML = data;
+
+        // Now manipulate the loaded elements based on login status
+        const isLoggedIn = localStorage.getItem("isLoggedIn"); // Simulated login flag
+
+        const viewRequestLink = document.getElementById("viewRequestLink");
+        const loginLink = document.getElementById("loginLink");
+
+        if (isLoggedIn === "true") {
+          // User is logged in
+          viewRequestLink.style.display = "block"; // Show "View My Request"
+          loginLink.style.display = "none"; // Hide "Login" button
+        } else {
+          // User is not logged in
+          viewRequestLink.style.display = "none";
+          loginLink.style.display = "block";
+        }
+      })
+      .catch((error) => console.error("Error loading header:", error));
+  });
     </script>
   </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Request</title>
+  <link rel="stylesheet" href="submitRequest.css">
+</head>
+<body>
+    <div id="header"></div>
+    <button class="back-btn" onclick="history.back()">&#x2190; Back</button>
+
+ 
+    <!-- Request Form -->
+     
+    <div class="submit-container">
+        <h2>Submit Your Request</h2>
+        <p>Share your request, and someone might make it happen!</p>
+        <form id="requestForm">
+          
+          <!-- Title Field -->
+          <div class="input-group">
+            <label for="title">Request Title</label>
+            <input id="title" type="text" placeholder="Enter a title for your request" minlength="3" maxlength="100" required oninput="updateCount('title', 'countTitle', 100)">
+            <div class="character-count" id="countTitle">0/100</div>
+          </div>
+      
+          <!-- Request Message Field -->
+          <div class="input-group">
+            <label for="request">Your Request</label>
+            <textarea id="request" placeholder="Write your request here!" minlength="10" maxlength="500" required oninput="updateCount('request', 'countMessage', 500)"></textarea>
+            <div class="character-count" id="countMessage">0/500</div>
+          </div>
+      
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+      
+  <script>
+    // Character Counter
+    function updateCount(inputId, counterId, max) {
+      const input = document.getElementById(inputId);
+      const count = input.value.length;
+      document.getElementById(counterId).innerText = `${count}/${max}`;
+    }
+  </script>
+   <!-- Snowflake Animation -->
+   <script src="../snowflake.js"></script>
+  
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+   fetch("../header.html")
+     .then((response) => response.text())
+     .then((data) => {
+       // Inject header HTML into the page
+       document.getElementById("header").innerHTML = data;
+
+       // Now manipulate the loaded elements based on login status
+       const isLoggedIn = localStorage.getItem("isLoggedIn"); // Simulated login flag
+
+       const viewRequestLink = document.getElementById("viewRequestLink");
+       const loginLink = document.getElementById("loginLink");
+
+       if (isLoggedIn === "true") {
+         // User is logged in
+         viewRequestLink.style.display = "block"; // Show "View My Request"
+         loginLink.style.display = "none"; // Hide "Login" button
+       } else {
+         // User is not logged in
+         viewRequestLink.style.display = "none";
+         loginLink.style.display = "block";
+       }
+     })
+     .catch((error) => console.error("Error loading header:", error));
+ });
+   </script>
+     <script src="submitRequest.js"></script>
+</body>
+</html>

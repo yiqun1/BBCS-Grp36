@@ -13,13 +13,22 @@
     </div>
     <nav class="nav">
       <ul class="nav-links">
+        <!-- Conditional Links -->
+        <li id="viewRequestLink" style="display: none;">
+          <a href="/request/viewRequest.html">View My Request</a>
+        </li>
         <li><a href="/">Tree</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/login.html" class="btn">Login</a></li>
+        <li id="loginLink">
+          <a href="/login.html" class="btn">Login</a>
+        </li>
+        <li id="logoutLink" style="display: none;">
+          <a href="#" onclick="logout()">Logout</a>
+        </li>
       </ul>
     </nav>
   </header>
-  
+ 
 </body>
 </html>

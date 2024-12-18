@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Tree Requests</title>
+  <link rel="stylesheet" href="viewRequest.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div class="content">
+        <h1>🎄 Christmas Tree Requests 🎄</h1>
+        <p>Completed requests are lit up!</p>
+    
+        <!-- Tree Container -->
+        <div id="tree-container" class="tree-container">
+          <img id="tree-image" src="/images/christmastree.png" alt="Christmas Tree" />
+        </div>
+      </div>
+
+  <script src="viewRequest.js"></script>
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+   fetch("../header.html")
+     .then((response) => response.text())
+     .then((data) => {
+       // Inject header HTML into the page
+       document.getElementById("header").innerHTML = data;
+
+       // Now manipulate the loaded elements based on login status
+       const isLoggedIn = localStorage.getItem("isLoggedIn"); // Simulated login flag
+
+       const viewRequestLink = document.getElementById("viewRequestLink");
+       const loginLink = document.getElementById("loginLink");
+
+       if (isLoggedIn === "true") {
+         // User is logged in
+         viewRequestLink.style.display = "block"; // Show "View My Request"
+         loginLink.style.display = "none"; // Hide "Login" button
+       } else {
+         // User is not logged in
+         viewRequestLink.style.display = "none";
+         loginLink.style.display = "block";
+       }
+     })
+     .catch((error) => console.error("Error loading header:", error));
+ });
+   </script>
+</body>
+</html>

@@ -16,10 +16,15 @@ async function processLogin() {
         });
 
         const result = await response.json();
+        console.log(result)
 
         if (response.ok) {
+            
             alert("Login successful!");
-            window.location.href = '/home/index.html'; // Redirect to home page
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem('user_id', result.user.user_id);
+            localStorage.setItem('username', result.user.username); 
+            window.location.href = 'http://localhost:3000/'; // Redirect to home page
         } else {
             errorMessage.textContent = result.error || "Invalid username or password!";
             errorMessage.style.display = "block";
