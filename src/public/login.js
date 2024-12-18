@@ -3,7 +3,6 @@ async function processLogin() {
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('error-message');
 
-    // Hide the error message initially
     errorMessage.style.display = "none";
 
     try {
@@ -25,8 +24,9 @@ async function processLogin() {
             localStorage.setItem('user_id', result.user.user_id);
             localStorage.setItem('username', result.user.username); 
             window.location.href = 'http://localhost:3000/'; // Redirect to home page
+
         } else {
-            errorMessage.textContent = result.error || "Invalid username or password!";
+            errorMessage.textContent = data.error || "Invalid username or password!";
             errorMessage.style.display = "block";
         }
     } catch (error) {
