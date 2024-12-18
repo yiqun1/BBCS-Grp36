@@ -7,18 +7,22 @@ const router = express.Router();
 
 // Login Route
 router.post("/login", async (req, res) => {
-  try {
-    const { username, password } = req.body;
 
-    if (!username || !password) {
-      return res.status(400).json({ error: "Both username and password are required" });
-    }
+    try {
+      const { username, password } = req.body;
+  
+      if (!username || !password) {
+        return res.status(400).json({ error: "Both username and password are required" });
+      }
+  
+      // Call the login function from the model
+      const user = await login(username, password);
+  
+      res.status(200).json({ message: "Login successful!",   user});
+    } catch (error) {
+      console.error("Login Route Error:", error.message);
+      res.status(401).json({ error: error.message || "Invalid login credentials" });
 
-    // Call the login function from the model
-    const user = await login(username, password);
-
-    if (!user) {
-      return res.status(401).json({ error: "Invalid username or password" });
     }
 
     // Return both the success message and user_id

@@ -14,14 +14,17 @@ async function processLogin() {
             body: JSON.stringify({ username, password })
         });
 
-        const data = await response.json();
+        const result = await response.json();
+        console.log(result)
 
         if (response.ok) {
-            // Save user_id to sessionStorage
-            sessionStorage.setItem("userId", data.user_id);
-
+            
             alert("Login successful!");
-            window.location.href = '/index.html'; // Redirect to home page
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem('user_id', result.user.user_id);
+            localStorage.setItem('username', result.user.username); 
+            window.location.href = 'http://localhost:3000/'; // Redirect to home page
+
         } else {
             errorMessage.textContent = data.error || "Invalid username or password!";
             errorMessage.style.display = "block";
