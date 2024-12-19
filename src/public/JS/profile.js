@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fetch User Profile
   async function fetchUserProfile() {
-      const userId = sessionStorage.getItem("userId");
+      const userId = localStorage.getItem("user_id");
 
       if (!userId || isNaN(userId)) {
-          console.error("Invalid user ID in sessionStorage.");
+          console.error("Invalid user ID in localStorage.");
           alert("Session expired. Please log in again.");
           window.location.href = "/login.html";
           return;
@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update User Profile
   async function updateUserProfile() {
-      const userId = sessionStorage.getItem("userId");
+      const userId = localStorage.getItem("user_id");
 
       if (!userId) {
-          console.error("userId not found in sessionStorage.");
+          console.error("user_id not found in localStorage.");
           return;
       }
 
@@ -78,6 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (response.ok) {
               alert("Profile updated successfully!");
+
+              // Update localStorage
+              localStorage.setItem("username", updatedProfile.username);
+              localStorage.setItem("email", updatedProfile.email);
+              if (updatedProfile.password) {
+                  localStorage.setItem("password", updatedProfile.password);
+              }
+              
               closeModal(); // Close modal on success
               fetchUserProfile(); // Refresh profile display
           } else {

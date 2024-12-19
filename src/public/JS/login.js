@@ -30,7 +30,7 @@ async function processLogin() {
             errorMessage.style.display = "block";
         }
     } catch (error) {
-        errorMessage.textContent = "Error connecting to the server. Please try again later.";
+        errorMessage.textContent = "Invalid username or password!";
         errorMessage.style.display = "block";
         console.error("Login Error:", error);
     }
