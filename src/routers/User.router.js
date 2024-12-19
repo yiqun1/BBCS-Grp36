@@ -22,18 +22,7 @@ router.post("/login", async (req, res) => {
     } catch (error) {
       console.error("Login Route Error:", error.message);
       res.status(401).json({ error: error.message || "Invalid login credentials" });
-
     }
-
-    // Return both the success message and user_id
-    res.status(200).json({
-      message: "Login successful!",
-      user_id: user.user_id, // Ensure user.user_id is correct
-    });
-  } catch (error) {
-    console.error("Login Route Error:", error.message);
-    res.status(500).json({ error: error.message || "Internal server error" });
-  }
 });
 
 
