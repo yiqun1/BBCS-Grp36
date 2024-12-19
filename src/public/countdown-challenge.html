@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Countdown Challenge</title>
+    <link rel="stylesheet" href="CSS/countdown.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="titleText">
+            <h1>Christmas Countdown Challenge</h1>
+        </div>
+        <div id="countdown"></div>
+        <p>Complete a random act of kindness each day leading up to Christmas!</p>
+        <div id="wheel-container">
+            <button id="spin-button">Spin the Wheel!</button>
+            <div id="wheel"></div>
+            <div id="random-act"></div>
+        </div>
+        <div id="progress-tracker">
+            <h2>Your Progress</h2>
+            <div id="progress-buttons"></div>
+        </div>
+    </div>
+
+    <!-- Login Prompt Modal -->
+    <div id="login-prompt" class="login-prompt-background" style="display: none;">
+        <div class="login-prompt-box">
+            <p>Please log in to access the Christmas Countdown Challenge.</p>
+            <button onclick="window.location.href='login.html'">Log In</button>
+        </div>
+    </div>
+
+    <!-- Popup for Day's Prompt and Social Media Link -->
+    <div id="day-popup" class="day-popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <br>
+            <h2>Day's Challenge</h2>
+            <p id="day-prompt"></p>
+            <p id="social-media-link"></p>
+        </div>
+    </div>
+
+    <script src="JS/header.js"></script>
+    <script src="JS/snowflake.js"></script>
+    <script src="JS/countdown.js"></script>
+    <script>
+        // Check if user is logged in
+        if (localStorage.getItem('user_id') === null) {
+            document.getElementById('login-prompt').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
