@@ -85,10 +85,6 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.milestones {
-    width: 70vw;
-}
-
-.map {
+.container-width-image {
     width: 70vw;
 }
