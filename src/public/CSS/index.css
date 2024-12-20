@@ -10,8 +10,10 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     position: relative;
+    text-align: center;
 }
 
 @keyframes snowfall {
@@ -48,8 +50,9 @@ h1 {
 p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
 }
+
 /* Submit a Request Button - Christmas Red Theme */
 .request-btn {
     background-color: #C62828; /* Nice Christmas red */
@@ -65,6 +68,7 @@ p {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
+    margin: 0 10px;
 }
 
 /* Hover Effect */
@@ -79,4 +83,12 @@ p {
     background-color: #8E0000; /* Even darker red for click */
     transform: scale(0.98);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.milestones {
+    width: 70vw;
+}
+
+.map {
+    width: 70vw;
 }

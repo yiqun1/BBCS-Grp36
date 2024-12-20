@@ -32,7 +32,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px; /* Space between links */
+  gap: 30px; /* Space between links */
 }
 
 .nav-links li a {
