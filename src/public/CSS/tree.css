@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+* {
+  font-family: "Fraunces", serif;
+}
+
 /* General Styling */
 body {
   margin: 0;
   background-color: #e6f7ff;
-  font-family: Arial, sans-serif;
   text-align: center;
   color: #333;
 }
